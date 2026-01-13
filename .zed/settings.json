@@ -1,0 +1,13 @@
+{
+  "file_scan_exclusions": [
+    ".git",
+    "node_modules",
+    "next-env.d.ts",
+    "postcss.config.mjs",
+    "tsconfig.json",
+    ".gitignore",
+    "biome.json",
+    "bun.lock",
+    "README.md"
+  ]
+}
