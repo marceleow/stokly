@@ -2,8 +2,6 @@ import { getUser } from "#/features/auth/auth-queries";
 import { Suspense } from "react";
 import TimeDisplay from "./time-display";
 import { Skeleton } from "./ui/skeleton";
-import { Button } from "./ui/button";
-import { MenuIcon } from "lucide-react";
 
 export default function Header() {
   return (

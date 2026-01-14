@@ -8,6 +8,7 @@
     ".gitignore",
     "biome.json",
     "bun.lock",
-    "README.md"
+    "README.md",
+    ".next"
   ]
 }

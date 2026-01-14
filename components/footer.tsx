@@ -31,7 +31,7 @@ const navItems: {
 export default function Footer() {
   const pathname = usePathname();
   return (
-    <footer className="bg-muted border-t border-border h-14">
+    <footer className="bg-muted border-t border-border ">
       <div className="flex items-center justify-around h-full px-4">
         {navItems.map((item) => {
           const Icon = item.icon;

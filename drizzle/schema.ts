@@ -1,17 +1,17 @@
+import { UserRole } from "#/features/auth/auth-permission";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
-
-export const userRole = {
-  admin: "admin",
-  user: "user",
-} as const;
+import { ulid } from "ulid";
 
 export const users = sqliteTable("users", {
-  id: integer("id").primaryKey({ autoIncrement: true }).notNull(),
+  id: text("id")
+    .primaryKey()
+    .notNull()
+    .$defaultFn(() => ulid()),
   name: text("name").notNull(),
   phoneNumber: text("phoneNumber").notNull(),
   password: text("password").notNull(),
-  role: text("role")
-    .$type<(typeof userRole)[keyof typeof userRole]>()
-    .notNull(),
+  role: text("role").$type<UserRole>().notNull(),
   active: integer("active", { mode: "boolean" }).notNull().default(true),
 });
+
+export type User = typeof users.$inferSelect;
