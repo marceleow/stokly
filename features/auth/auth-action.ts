@@ -30,6 +30,7 @@ export const signIn = async (_: any, formData: FormData) => {
     columns: {
       id: true,
       password: true,
+      active: true,
     },
   });
 
@@ -37,6 +38,12 @@ export const signIn = async (_: any, formData: FormData) => {
     return {
       success: false,
       message: "Kredensial tidak valid",
+    };
+
+  if (!user.active)
+    return {
+      success: false,
+      message: "Akun tidak aktif",
     };
 
   if (!(await bcrypt.compare(parsed.data.password, user.password)))

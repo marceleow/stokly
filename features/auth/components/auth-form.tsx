@@ -22,7 +22,7 @@ export default function AuthForm() {
   const [_, action, pending] = useActionState(signIn, undefined);
   return (
     <Drawer direction="top" dismissible open={true}>
-      <DrawerContent className="">
+      <DrawerContent>
         <DrawerHeader className="items-start border-b">
           <DrawerTitle className="text-2xl font-bold">
             Verifikasi Identitas
@@ -47,7 +47,11 @@ export default function AuthForm() {
               <InputGroupAddon>
                 <LockIcon />
               </InputGroupAddon>
-              <InputGroupInput name="password" type="password" placeholder="katasandi" />
+              <InputGroupInput
+                name="password"
+                type="password"
+                placeholder="katasandi"
+              />
             </InputGroup>
           </div>
         </form>
