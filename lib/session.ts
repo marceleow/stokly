@@ -9,7 +9,7 @@ const AUTH_SECRET_KEY = env.AUTH_SECRET_KEY;
 const encodedKey = new TextEncoder().encode(AUTH_SECRET_KEY);
 
 type SessionPayload = {
-  userId: number;
+  userId: string;
   expiresAt: Date;
 };
 
@@ -31,7 +31,7 @@ export const decrypt = async (token: string | undefined = "") => {
   }
 };
 
-export const createSession = async (userId: number) => {
+export const createSession = async (userId: string) => {
   const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24);
   const token = await encrypt({ userId, expiresAt });
   const cookie = await cookies();
